@@ -15,11 +15,12 @@ pipeline {
             }
         }
 
-        stage('Run Application') {
-            steps {
-                echo 'run application'
-                bat 'python app.py'
-            }
-        }
+       
+stage('Run Application') {
+    steps {
+        echo 'Running application...'
+        bat '"C:\\Users\\VINAYAK\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" app.py'
     }
+  }
+ }
 }
