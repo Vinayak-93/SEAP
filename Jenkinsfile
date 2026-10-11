@@ -1,26 +1,17 @@
 
-pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building application...'
-            }
+pipeline { 
+    agent any 
+ 
+    stages { 
+ 
+        stage('Checkout') { 
+            steps { 
+                checkout scm 
+            } 
+        } 
+ 
+        stage('Build Docker Image') { 
+            steps { 
+                bat 'docker build -t tut5 .' 
+            } 
         }
-
-        stage('Test') {
-            steps {
-                echo 'Testing application...'
-            }
-        }
-
-       
-stage('Run Application') {
-    steps {
-        echo 'Running application...'
-        bat '"C:\\Users\\VINAYAK\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" app.py'
-    }
-  }
- }
-}
